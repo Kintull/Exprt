@@ -31,26 +31,26 @@ namespace Expert
             }
         }
 
-        
-
-        
-
-        private void Form1_MouseDown(object sender, System.Windows.Forms.MouseEventArgs e)
-        {
-            
-        }
-
         public Form1()
         {
 
             InitializeComponent();
         }
 
-        
-
+        public Form2 cyclogramForm = null;
         private void button1_Click(object sender, EventArgs e)
         {
-            new Form2().Show();
+
+            if (cyclogramForm != null)
+            {
+                cyclogramForm.BringToFront();
+            }
+            else
+            {
+                cyclogramForm = new Form2();
+                cyclogramForm.Owner = this;
+                cyclogramForm.Show();
+            }
         }
 
         private void closeBox_Click(object sender, EventArgs e)
@@ -87,12 +87,24 @@ namespace Expert
             }
         }
 
-        private void pan_main_Paint(object sender, PaintEventArgs e)
+        private void button2_MouseEnter(object sender, EventArgs e)
+        {
+            button2.BackgroundImage = Expert.Properties.Resources.button_active;
+        }
+
+        private void button2_MouseLeave(object sender, EventArgs e)
+        {
+            button2.BackgroundImage = null;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }
 
-
-
+        private void button2_MouseClick(object sender, MouseEventArgs e)
+        {
+            new Form4().Show();
+        }
     }
 }

@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 
 namespace Expert
 {
-    public partial class Form3 : Form
+    public partial class Form5 : Form
     {
         private const int CS_DROPSHADOW = 0x20000;
         private const int WM_NCLBUTTONDOWN = 0xA1;
@@ -31,36 +31,24 @@ namespace Expert
             }
         }
 
-        public Form3()
+        public Form5()
         {
             InitializeComponent();
 
         }
 
-        private String GetNewName()
-        {
-            return this.editNewCycleName.Text;
-        }
-
-        private deviceItem.DeviсeType GetNewDeviceType()
-        {
-            if (this.radioMechanizm.Checked) return deviceItem.DeviсeType.MOTOR;
-            else if (this.radioSensor.Checked) return deviceItem.DeviсeType.SENSOR;
-            else return deviceItem.DeviсeType.UNKNOWN;
-        }
-
 
         private void confirmDialogCycleInfoBtn_Click(object sender, EventArgs e)
         {
-            if (this.editNewCycleName.Text == ""||(!(this.radioMechanizm.Checked)&!(this.radioSensor.Checked)))
+            if (this.EditExpertName.Text == "")
             {
                 MessageBox.Show("You missed something!");
                 return;
             }
-            Form2 master = this.Owner as Form2;
+            Form4 master = this.Owner as Form4;
             if (master != null)
             {
-                master.CreateNewLine(GetNewName(),GetNewDeviceType());
+                master.addNewExpert(EditExpertName.Text);
             }
 
             this.Close();
@@ -95,7 +83,7 @@ namespace Expert
             }
         }
 
-        private void Form3_KeyDown(object sender, KeyEventArgs e)
+        private void Form5_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
@@ -124,5 +112,13 @@ namespace Expert
             MessageBox.Show("Click");
         }
 
+        private void label2_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
     }
 }

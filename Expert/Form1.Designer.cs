@@ -29,13 +29,14 @@
         private void InitializeComponent()
         {
             this.pan_left = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pan_main = new System.Windows.Forms.Panel();
             this.pan_cycle_list = new System.Windows.Forms.Panel();
             this.cycleList = new System.Windows.Forms.ListBox();
             this.pan_header = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.closeBox = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pan_left.SuspendLayout();
             this.pan_main.SuspendLayout();
             this.pan_cycle_list.SuspendLayout();
@@ -49,11 +50,33 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pan_left.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(64)))), ((int)(((byte)(82)))));
             this.pan_left.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pan_left.Controls.Add(this.button2);
             this.pan_left.Controls.Add(this.button1);
             this.pan_left.Location = new System.Drawing.Point(0, 52);
             this.pan_left.Name = "pan_left";
             this.pan_left.Size = new System.Drawing.Size(163, 445);
             this.pan_left.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(0, 50);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(163, 40);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "    Критерии";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.button2_MouseClick);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // button1
             // 
@@ -62,13 +85,13 @@
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(-1, 69);
+            this.button1.Location = new System.Drawing.Point(0, 90);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(163, 40);
             this.button1.TabIndex = 0;
-            this.button1.Text = "     New cycle";
+            this.button1.Text = "    Циклограмма";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -85,7 +108,6 @@
             this.pan_main.Name = "pan_main";
             this.pan_main.Size = new System.Drawing.Size(769, 445);
             this.pan_main.TabIndex = 2;
-            this.pan_main.Paint += new System.Windows.Forms.PaintEventHandler(this.pan_main_Paint);
             // 
             // pan_cycle_list
             // 
@@ -97,9 +119,14 @@
             // 
             // cycleList
             // 
+            this.cycleList.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.cycleList.ItemHeight = 25;
+            this.cycleList.Items.AddRange(new object[] {
+            "Проект №341-18",
+            "Прокет №115-15.100"});
             this.cycleList.Location = new System.Drawing.Point(0, 0);
             this.cycleList.Name = "cycleList";
-            this.cycleList.Size = new System.Drawing.Size(243, 134);
+            this.cycleList.Size = new System.Drawing.Size(243, 229);
             this.cycleList.TabIndex = 0;
             // 
             // pan_header
@@ -117,6 +144,20 @@
             this.pan_header.TabIndex = 0;
             this.pan_header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_header_MouseDown);
             // 
+            // closeBox
+            // 
+            this.closeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeBox.BackColor = System.Drawing.Color.Transparent;
+            this.closeBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.closeBox.Image = global::Expert.Properties.Resources.delete_cross;
+            this.closeBox.Location = new System.Drawing.Point(896, 12);
+            this.closeBox.Name = "closeBox";
+            this.closeBox.Size = new System.Drawing.Size(24, 24);
+            this.closeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.closeBox.TabIndex = 2;
+            this.closeBox.TabStop = false;
+            this.closeBox.Click += new System.EventHandler(this.closeBox_Click);
+            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -128,20 +169,6 @@
             this.panel1.Size = new System.Drawing.Size(163, 52);
             this.panel1.TabIndex = 3;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            // 
-            // closeBox
-            // 
-            this.closeBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.closeBox.BackColor = System.Drawing.Color.Transparent;
-            this.closeBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.closeBox.Image = global::Expert.Properties.Resources.delete_cross;
-            this.closeBox.Location = new System.Drawing.Point(900, 7);
-            this.closeBox.Name = "closeBox";
-            this.closeBox.Size = new System.Drawing.Size(24, 24);
-            this.closeBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.closeBox.TabIndex = 2;
-            this.closeBox.TabStop = false;
-            this.closeBox.Click += new System.EventHandler(this.closeBox_Click);
             // 
             // Form1
             // 
@@ -173,6 +200,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox closeBox;
+        private System.Windows.Forms.Button button2;
     }
 }
 

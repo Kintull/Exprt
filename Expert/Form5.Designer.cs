@@ -1,6 +1,6 @@
 ﻿namespace Expert
 {
-    partial class Form3
+    partial class Form5
     {
         /// <summary>
         /// Required designer variable.
@@ -29,14 +29,11 @@
         private void InitializeComponent()
         {
             this.pan_cycle_info = new System.Windows.Forms.Panel();
-            this.radioMechanizm = new System.Windows.Forms.RadioButton();
-            this.radioSensor = new System.Windows.Forms.RadioButton();
-            this.labelCycleType = new System.Windows.Forms.Label();
-            this.labelNewCycleName = new System.Windows.Forms.Label();
-            this.editNewCycleName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.EditExpertName = new System.Windows.Forms.TextBox();
             this.confirmDialogCycleInfoBtn = new System.Windows.Forms.PictureBox();
             this.closeDialogCycleInfoBtn = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.pan_cycle_info.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.confirmDialogCycleInfoBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeDialogCycleInfoBtn)).BeginInit();
@@ -46,12 +43,9 @@
             // 
             this.pan_cycle_info.BackColor = System.Drawing.Color.Beige;
             this.pan_cycle_info.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pan_cycle_info.Controls.Add(this.label2);
             this.pan_cycle_info.Controls.Add(this.label1);
-            this.pan_cycle_info.Controls.Add(this.radioMechanizm);
-            this.pan_cycle_info.Controls.Add(this.radioSensor);
-            this.pan_cycle_info.Controls.Add(this.labelCycleType);
-            this.pan_cycle_info.Controls.Add(this.labelNewCycleName);
-            this.pan_cycle_info.Controls.Add(this.editNewCycleName);
+            this.pan_cycle_info.Controls.Add(this.EditExpertName);
             this.pan_cycle_info.Controls.Add(this.confirmDialogCycleInfoBtn);
             this.pan_cycle_info.Controls.Add(this.closeDialogCycleInfoBtn);
             this.pan_cycle_info.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -61,62 +55,34 @@
             this.pan_cycle_info.TabIndex = 0;
             this.pan_cycle_info.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pan_cycle_info_MouseDown);
             // 
-            // radioMechanizm
+            // label2
             // 
-            this.radioMechanizm.AutoSize = true;
-            this.radioMechanizm.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioMechanizm.Location = new System.Drawing.Point(175, 112);
-            this.radioMechanizm.Name = "radioMechanizm";
-            this.radioMechanizm.Size = new System.Drawing.Size(103, 24);
-            this.radioMechanizm.TabIndex = 3;
-            this.radioMechanizm.Text = "Mechanizm";
-            this.radioMechanizm.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label2.Location = new System.Drawing.Point(87, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(222, 30);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Добавление эксперта";
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDown);
             // 
-            // radioSensor
+            // label1
             // 
-            this.radioSensor.AutoSize = true;
-            this.radioSensor.Checked = true;
-            this.radioSensor.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioSensor.Location = new System.Drawing.Point(98, 112);
-            this.radioSensor.Name = "radioSensor";
-            this.radioSensor.Size = new System.Drawing.Size(71, 24);
-            this.radioSensor.TabIndex = 2;
-            this.radioSensor.TabStop = true;
-            this.radioSensor.Text = "Sensor";
-            this.radioSensor.UseVisualStyleBackColor = true;
-            this.radioSensor.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(50, 57);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 21);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Фамилия Имя";
             // 
-            // labelCycleType
+            // EditExpertName
             // 
-            this.labelCycleType.AutoSize = true;
-            this.labelCycleType.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelCycleType.Location = new System.Drawing.Point(32, 112);
-            this.labelCycleType.Name = "labelCycleType";
-            this.labelCycleType.Size = new System.Drawing.Size(40, 20);
-            this.labelCycleType.TabIndex = 0;
-            this.labelCycleType.Text = "Type";
-            // 
-            // labelNewCycleName
-            // 
-            this.labelNewCycleName.AutoSize = true;
-            this.labelNewCycleName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.labelNewCycleName.Location = new System.Drawing.Point(32, 50);
-            this.labelNewCycleName.Name = "labelNewCycleName";
-            this.labelNewCycleName.Size = new System.Drawing.Size(58, 40);
-            this.labelNewCycleName.TabIndex = 0;
-            this.labelNewCycleName.Text = "Device \r\nname";
-            // 
-            // editNewCycleName
-            // 
-            this.editNewCycleName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.editNewCycleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.editNewCycleName.Location = new System.Drawing.Point(98, 56);
-            this.editNewCycleName.MaxLength = 25;
-            this.editNewCycleName.Name = "editNewCycleName";
-            this.editNewCycleName.Size = new System.Drawing.Size(239, 29);
-            this.editNewCycleName.TabIndex = 1;
-            this.editNewCycleName.TabStop = false;
-            this.editNewCycleName.Text = "test";
+            this.EditExpertName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.EditExpertName.Location = new System.Drawing.Point(54, 88);
+            this.EditExpertName.Name = "EditExpertName";
+            this.EditExpertName.Size = new System.Drawing.Size(239, 29);
+            this.EditExpertName.TabIndex = 1;
             // 
             // confirmDialogCycleInfoBtn
             // 
@@ -143,17 +109,7 @@
             this.closeDialogCycleInfoBtn.TabStop = false;
             this.closeDialogCycleInfoBtn.Click += new System.EventHandler(this.closeDialogCycleInfoBtn_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(44, 6);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(316, 30);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Добавление нового устройства";
-            // 
-            // Form3
+            // Form5
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -161,9 +117,9 @@
             this.Controls.Add(this.pan_cycle_info);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.KeyPreview = true;
-            this.Name = "Form3";
+            this.Name = "Form5";
             this.Text = "cycleInfoForm";
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form3_KeyDown);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form5_KeyDown);
             this.pan_cycle_info.ResumeLayout(false);
             this.pan_cycle_info.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.confirmDialogCycleInfoBtn)).EndInit();
@@ -175,13 +131,10 @@
         #endregion
 
         private System.Windows.Forms.Panel pan_cycle_info;
-        private System.Windows.Forms.RadioButton radioMechanizm;
-        private System.Windows.Forms.RadioButton radioSensor;
-        private System.Windows.Forms.Label labelCycleType;
-        private System.Windows.Forms.Label labelNewCycleName;
-        private System.Windows.Forms.TextBox editNewCycleName;
         private System.Windows.Forms.PictureBox confirmDialogCycleInfoBtn;
         private System.Windows.Forms.PictureBox closeDialogCycleInfoBtn;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox EditExpertName;
     }
 }

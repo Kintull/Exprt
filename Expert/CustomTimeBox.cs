@@ -12,32 +12,35 @@ namespace Expert
 {
     public partial class CustomTimeBox : UserControl
     {
-        public enum DeviceType {Sensor, Motor, None};
-        private bool[] bValues = new bool[30];
+       
         System.Collections.ArrayList arrayList = new System.Collections.ArrayList();
-        System.Collections.ArrayList arrayListDisabled = new System.Collections.ArrayList();
-        List<int> connections = new List<int>(30);
-        private DeviceType deviceType;
-        public CustomTimeBox(String lineName, Expert.CustomTimeBox.DeviceType aDeviceType, int width, int LineCount)
+        
+        private deviceItem currentDevice = new deviceItem();
+        
+        public CustomTimeBox(string lineName, deviceItem.DeviсeType aDeviceType, int width, int currentLineNumber)
         {
             InitializeComponent();
 
             for (int i = 0; i < width; i++)
             {
-                this.dataGridView1.Columns.Add("column" + LineCount.ToString() + i.ToString(),"");
+                this.dataGridView1.Columns.Add("column" + currentLineNumber.ToString() + i.ToString(),"");
             }
             this.label1.Text = lineName;
-            this.label2.Text = LineCount.ToString();
-            connections.Add(LineCount);
-            deviceType = aDeviceType;
+            this.label2.Text = currentLineNumber.ToString();
+            currentDevice.addConnection(currentLineNumber);
+            currentDevice.setDeviceType(aDeviceType);
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
+            List<int> activeBoxes = new List<int>(100);
+            activeBoxes.Clear();
             foreach (DataGridViewCell arrayElement in arrayList)
             {
                 arrayElement.Selected = true;
+                activeBoxes.Add(arrayElement.ColumnIndex);
             }
+            currentDevice.setActiveBoxes(activeBoxes);
         }
 
         private void dataGridView1_CurrentCellChanged(object sender, EventArgs e)
@@ -59,9 +62,9 @@ namespace Expert
 
         private void label1_MouseDown(object sender, MouseEventArgs e)
         {
-            if (deviceType == DeviceType.Sensor)
+            if (currentDevice.getDeviceType() == deviceItem.DeviсeType.SENSOR)
             {
-                label1.DoDragDrop(connections[0].ToString(), DragDropEffects.All);
+                label1.DoDragDrop(currentDevice.deviceNumber.ToString(), DragDropEffects.All);
             }
             else
             {
@@ -74,11 +77,11 @@ namespace Expert
             int income = int.Parse(e.Data.GetData(DataFormats.Text).ToString());
             if ( !itemExists(income) )
             {
-                connections.Add(income);
+                currentDevice.addConnection(income);
                 this.label2.Text = concatConnections();
                 
             }
-            else if (income == connections[0])
+            else if (income == currentDevice.deviceNumber)
             {
 
             }
@@ -92,7 +95,7 @@ namespace Expert
         
         private bool itemExists(int input)
         {
-            foreach (int connection in connections)
+            foreach (int connection in currentDevice.getConnections())
             {
                 if (input == connection) return true;
             }
@@ -102,7 +105,7 @@ namespace Expert
         private bool itemItself(int input)
         {
          
-            if (input == connections[0]) return true;
+            if (input == currentDevice.deviceNumber) return true;
             
             return false;
         }
@@ -110,7 +113,7 @@ namespace Expert
         private String concatConnections()
         {
             List<String> s = new List<String>(30);
-            foreach (int connection in connections)
+            foreach (int connection in currentDevice.getConnections())
             {
                 s.Add(connection.ToString() + " ");
             }

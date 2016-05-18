@@ -35,7 +35,7 @@ namespace Expert
 
         private List<CustomTimeBox> listOfUserControls = new List<CustomTimeBox>(100);
 
-        public void CreateNewLine(String lineName, Expert.CustomTimeBox.DeviceType deviceType)
+        public void CreateNewLine(String lineName, deviceItem.DeviсeType deviceType)
         {
             CustomTimeBox NewLine = new CustomTimeBox(lineName, deviceType, 30, listOfUserControls.Count);
             NewLine.Width = 91 + 21 * 30 + 10;
@@ -68,5 +68,45 @@ namespace Expert
             }
         }
 
+        private void closeBox_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void label1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
+        private void Form2_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Form1 master = this.Owner as Form1;
+            if (master != null)
+            {
+                master.cyclogramForm = null;
+            }
+        }
     }
 }
