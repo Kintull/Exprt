@@ -39,6 +39,7 @@
             this.btnAddNewCycle = new System.Windows.Forms.Button();
             this.pan_cycle_main = new System.Windows.Forms.Panel();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             this.pan_header_cycle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.closeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -113,6 +114,7 @@
             // 
             this.pan_cycle_container.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pan_cycle_container.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(207)))), ((int)(((byte)(232)))), ((int)(((byte)(246)))));
+            this.pan_cycle_container.Controls.Add(this.button1);
             this.pan_cycle_container.Controls.Add(this.btnAddNewCycle);
             this.pan_cycle_container.Controls.Add(this.pan_cycle_main);
             this.pan_cycle_container.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -143,6 +145,16 @@
             this.pan_cycle_main.Name = "pan_cycle_main";
             this.pan_cycle_main.Size = new System.Drawing.Size(841, 363);
             this.pan_cycle_main.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(45, 443);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Calculate";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form2
             // 
@@ -176,5 +188,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox closeBox;
+        private System.Windows.Forms.Button button1;
     }
 }

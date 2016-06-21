@@ -8,13 +8,39 @@ namespace Expert
 {
     public class deviceItem
     {
+
+        public deviceItem(string name, deviceItem.DeviсeType type, int id, int width)
+        {
+            timeBoxesList = new bool[width];
+            timeBoxesList.Select(i => false).ToArray();
+            connections = new List<int>(width);
+            timeWidth = width;
+            deviceName = name;
+            deviceType = type;
+            deviceNumber = id;
+            addConnection(id);
+        }
+
         public enum DeviсeType { SENSOR, MOTOR, UNKNOWN };
 
+        private int timeWidth;
         private string deviceName;
-        private DeviсeType deviceType;
-        private List<int> activeBoxesList = new List<int>(100);
-        private List<int> connections = new List<int>(30);
+        private DeviсeType currentdeviceType;
+        private bool[] timeBoxesList;
+        private List<int> connections;
         private int currentDeviceNumber;
+
+        public DeviсeType deviceType
+        {
+            get
+            {
+                return currentdeviceType;
+            }
+            set
+            {
+                currentdeviceType = value;
+            }
+        }
 
         public int deviceNumber
         {
@@ -48,14 +74,14 @@ namespace Expert
             deviceType = type;
         }
 
-        public List<int> getActiveBoxes()
+        public bool[] getBoxes()
         {
-            return activeBoxesList;
+            return timeBoxesList;
         }
 
-        public void setActiveBoxes(List<int> values)
+        public void setBoxes(bool[] values)
         {
-            activeBoxesList = values;
+            timeBoxesList = values;
         }
 
         public List<int> getConnections()
@@ -68,5 +94,7 @@ namespace Expert
             connections.Add(aConnection);
         }
 
+        
+        
     }
 }
